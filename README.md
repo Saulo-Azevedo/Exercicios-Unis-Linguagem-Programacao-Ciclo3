@@ -18,7 +18,7 @@
 <div>
   <div align="left">
     <h3 align="left"> 1)  Criar, usando qualquer ferramenta de interface gráfica, a seguinte tela</h3>
-    <img src="https://github.com/Saulo-Azevedo/Ciclo3/blob/main/Ciclo3/Capturar.PNG" height="350px" width="350px">
+    <img src="https://github.com/Saulo-Azevedo/Ciclo3/blob/main/Ciclo3/Capturar.PNG" height="350px" width="500px">
    <h3 align="left"> 2) Execute o processamento dos dados para calcular como o IMC do paciente está. Use a seguinte referência para fazer o cálculo…  https://pt.wikipedia.org/wiki/%C3%8Dndice_de_massa_corporal</h3>
     <h3 align="left"> 3) Publique os códigos na sua conta do GitHub e posteriormente responda a atividade postando a URL do seu projeto no Github para que o professor possa fazer a execução do código e a correção da atividade</h3>
 <div>
