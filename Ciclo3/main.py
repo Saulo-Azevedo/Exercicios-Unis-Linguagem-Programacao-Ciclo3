@@ -18,6 +18,8 @@ class FramePrincipal(frame_principal.MyFrame1):
             print("Nome: " , self.nome.GetValue())
             print("Endereço Completo:" , self.endereco.GetValue())
             print("IMC:",round(imc,2), " - Muito abaixo do peso!")
+            #self.nomedocampoquereceberaovalor.SetValue("- Muito abaixo do peso!")
+            
         elif imc >= 17 and imc <= 18.49:
             print("Nome: " , self.nome.GetValue())
             print("Endereço Completo:" , self.endereco.GetValue())            
