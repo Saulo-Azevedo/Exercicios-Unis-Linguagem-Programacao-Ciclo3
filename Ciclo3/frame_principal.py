@@ -17,149 +17,189 @@ import wx.xrc
 class MyFrame1 ( wx.Frame ):
 
 	def __init__( self, parent ):
-		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = u"Calculo do IMC - Indice de Massa Corporal", pos = wx.DefaultPosition, size = wx.Size( 593,452 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
+		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = u"Calculo do IMC - Indice de Massa Corporal", pos = wx.DefaultPosition, size = wx.Size( 650,340 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
 
-		self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
+		self.SetSizeHints( wx.Size( 650,340 ), wx.Size( 650,340 ) )
 		self.SetFont( wx.Font( wx.NORMAL_FONT.GetPointSize(), wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL, False, wx.EmptyString ) )
 
-		bSizer1 = wx.BoxSizer( wx.VERTICAL )
+		bSizer2 = wx.BoxSizer( wx.VERTICAL )
 
-		self.m_panel5 = wx.Panel( self, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.TAB_TRAVERSAL )
-		self.m_panel5.SetFont( wx.Font( wx.NORMAL_FONT.GetPointSize(), wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL, False, wx.EmptyString ) )
-		self.m_panel5.SetBackgroundColour( wx.SystemSettings.GetColour( wx.SYS_COLOUR_WINDOW ) )
+		bSizer2.SetMinSize( wx.Size( 800,600 ) )
+		self.m_panel1 = wx.Panel( self, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.TAB_TRAVERSAL )
+		self.m_panel1.SetBackgroundColour( wx.Colour( 255, 255, 255 ) )
+
+		bSizer3 = wx.BoxSizer( wx.VERTICAL )
+
+		gSizer1 = wx.GridSizer( 0, 2, 0, 0 )
+
+		self.m_staticText2 = wx.StaticText( self.m_panel1, wx.ID_ANY, u"Nome do paciente:", wx.DefaultPosition, wx.Size( 150,20 ), 0 )
+		self.m_staticText2.Wrap( -1 )
+
+		self.m_staticText2.SetFont( wx.Font( 12, wx.FONTFAMILY_SCRIPT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL, False, wx.EmptyString ) )
+
+		gSizer1.Add( self.m_staticText2, 0, wx.ALIGN_CENTER_VERTICAL|wx.LEFT, 5 )
+
+		self.nome = wx.TextCtrl( self.m_panel1, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 459,25 ), 0 )
+		self.nome.SetMinSize( wx.Size( 459,25 ) )
+		self.nome.SetMaxSize( wx.Size( 459,25 ) )
+
+		gSizer1.Add( self.nome, 0, wx.ALL|wx.ALIGN_RIGHT, 5 )
+
+
+		bSizer3.Add( gSizer1, 0, wx.EXPAND, 5 )
+
+		gSizer11 = wx.GridSizer( 0, 2, 0, 0 )
+
+		self.m_staticText21 = wx.StaticText( self.m_panel1, wx.ID_ANY, u"Endereço Completo:", wx.DefaultPosition, wx.Size( 150,20 ), 0 )
+		self.m_staticText21.Wrap( -1 )
+
+		self.m_staticText21.SetFont( wx.Font( 12, wx.FONTFAMILY_SCRIPT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL, False, wx.EmptyString ) )
+
+		gSizer11.Add( self.m_staticText21, 0, wx.ALIGN_CENTER_VERTICAL|wx.ALL, 5 )
+
+		self.endereco = wx.TextCtrl( self.m_panel1, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 459,25 ), 0 )
+		self.endereco.SetMinSize( wx.Size( 459,25 ) )
+		self.endereco.SetMaxSize( wx.Size( 459,25 ) )
+
+		gSizer11.Add( self.endereco, 0, wx.ALL|wx.ALIGN_RIGHT, 5 )
+
+
+		bSizer3.Add( gSizer11, 0, wx.EXPAND, 5 )
+
+		bSizer5 = wx.BoxSizer( wx.VERTICAL )
+
+		gSizer6 = wx.GridSizer( 0, 2, 0, 0 )
 
 		bSizer6 = wx.BoxSizer( wx.VERTICAL )
 
 		gSizer4 = wx.GridSizer( 0, 2, 0, 0 )
 
-		self.m_staticText4 = wx.StaticText( self.m_panel5, wx.ID_ANY, u"Nome do Paciente:", wx.DefaultPosition, wx.Size( 120,20 ), wx.ALIGN_CENTER_HORIZONTAL )
+		self.m_staticText3 = wx.StaticText( self.m_panel1, wx.ID_ANY, u"Altura (cm)", wx.DefaultPosition, wx.Size( 80,25 ), wx.ALIGN_CENTER_HORIZONTAL )
+		self.m_staticText3.Wrap( -1 )
+
+		self.m_staticText3.SetFont( wx.Font( 12, wx.FONTFAMILY_SCRIPT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL, False, wx.EmptyString ) )
+
+		gSizer4.Add( self.m_staticText3, 0, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5 )
+
+		self.altura = wx.TextCtrl( self.m_panel1, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 145,25 ), 0 )
+		self.altura.SetMinSize( wx.Size( 145,25 ) )
+		self.altura.SetMaxSize( wx.Size( 145,25 ) )
+
+		gSizer4.Add( self.altura, 0, wx.ALL, 5 )
+
+		self.m_staticText4 = wx.StaticText( self.m_panel1, wx.ID_ANY, u"Peso (kg)", wx.DefaultPosition, wx.Size( 80,25 ), wx.ALIGN_CENTER_HORIZONTAL )
 		self.m_staticText4.Wrap( -1 )
 
-		self.m_staticText4.SetFont( wx.Font( 11, wx.FONTFAMILY_ROMAN, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL, False, wx.EmptyString ) )
+		self.m_staticText4.SetFont( wx.Font( 12, wx.FONTFAMILY_SCRIPT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL, False, wx.EmptyString ) )
 
 		gSizer4.Add( self.m_staticText4, 0, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5 )
 
-		self.m_textCtrl19 = wx.TextCtrl( self.m_panel5, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 450,25 ), 0 )
-		gSizer4.Add( self.m_textCtrl19, 0, wx.ALL|wx.ALIGN_RIGHT, 5 )
+		self.peso = wx.TextCtrl( self.m_panel1, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 145,25 ), 0 )
+		self.peso.SetMinSize( wx.Size( 145,25 ) )
+		self.peso.SetMaxSize( wx.Size( 145,25 ) )
+
+		gSizer4.Add( self.peso, 0, wx.ALL, 5 )
 
 
 		bSizer6.Add( gSizer4, 0, wx.EXPAND, 5 )
 
-		gSizer41 = wx.GridSizer( 0, 2, 0, 0 )
 
-		self.m_staticText41 = wx.StaticText( self.m_panel5, wx.ID_ANY, u"Endereço Completo:", wx.DefaultPosition, wx.Size( 120,20 ), wx.ALIGN_CENTER_HORIZONTAL )
-		self.m_staticText41.Wrap( -1 )
+		gSizer6.Add( bSizer6, 1, wx.EXPAND, 5 )
 
-		self.m_staticText41.SetFont( wx.Font( 11, wx.FONTFAMILY_ROMAN, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL, False, wx.EmptyString ) )
+		self.total = wx.TextCtrl( self.m_panel1, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 300,150 ), 0 )
+		self.total.SetMinSize( wx.Size( 300,150 ) )
+		self.total.SetMaxSize( wx.Size( 300,150 ) )
 
-		gSizer41.Add( self.m_staticText41, 0, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5 )
-
-		self.m_textCtrl191 = wx.TextCtrl( self.m_panel5, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 450,25 ), 0 )
-		gSizer41.Add( self.m_textCtrl191, 0, wx.ALL|wx.ALIGN_RIGHT, 5 )
+		gSizer6.Add( self.total, 0, wx.ALL|wx.EXPAND|wx.ALIGN_RIGHT, 5 )
 
 
-		bSizer6.Add( gSizer41, 0, wx.EXPAND, 5 )
-
-		bSizer9 = wx.BoxSizer( wx.VERTICAL )
-
-		gSizer10 = wx.GridSizer( 0, 2, 0, 0 )
-
-		bSizer10 = wx.BoxSizer( wx.VERTICAL )
-
-		gSizer42 = wx.GridSizer( 0, 2, 1, 1 )
-
-		self.m_staticText42 = wx.StaticText( self.m_panel5, wx.ID_ANY, u"Altura (cm)", wx.DefaultPosition, wx.Size( 80,25 ), wx.ALIGN_CENTER_HORIZONTAL )
-		self.m_staticText42.Wrap( -1 )
-
-		self.m_staticText42.SetFont( wx.Font( 12, wx.FONTFAMILY_ROMAN, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL, False, wx.EmptyString ) )
-
-		gSizer42.Add( self.m_staticText42, 1, wx.ALL|wx.LEFT, 5 )
-
-		self.m_textCtrl192 = wx.TextCtrl( self.m_panel5, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 155,25 ), 0 )
-		gSizer42.Add( self.m_textCtrl192, 0, wx.ALL|wx.BOTTOM|wx.LEFT|wx.RESERVE_SPACE_EVEN_IF_HIDDEN|wx.RIGHT|wx.ALIGN_RIGHT, 5 )
-
-		self.m_staticText421 = wx.StaticText( self.m_panel5, wx.ID_ANY, u"Peso (kg)", wx.DefaultPosition, wx.Size( 80,25 ), wx.ALIGN_CENTER_HORIZONTAL )
-		self.m_staticText421.Wrap( -1 )
-
-		self.m_staticText421.SetFont( wx.Font( 12, wx.FONTFAMILY_ROMAN, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL, False, wx.EmptyString ) )
-
-		gSizer42.Add( self.m_staticText421, 0, wx.ALL, 5 )
-
-		self.m_textCtrl1921 = wx.TextCtrl( self.m_panel5, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 155,25 ), 0 )
-		gSizer42.Add( self.m_textCtrl1921, 0, wx.ALL|wx.RIGHT|wx.ALIGN_RIGHT, 5 )
+		bSizer5.Add( gSizer6, 0, wx.EXPAND, 5 )
 
 
-		bSizer10.Add( gSizer42, 0, 0, 1 )
+		bSizer3.Add( bSizer5, 0, wx.EXPAND, 5 )
+
+		gSizer5 = wx.GridSizer( 0, 2, 0, 0 )
+
+		gSizer61 = wx.GridSizer( 0, 2, 0, 0 )
+
+		bSizer51 = wx.BoxSizer( wx.VERTICAL )
+
+		self.btn_calcular = wx.Button( self.m_panel1, wx.ID_ANY, u"Calcular", wx.DefaultPosition, wx.Size( 130,50 ), 0 )
+		self.btn_calcular.SetFont( wx.Font( wx.NORMAL_FONT.GetPointSize(), wx.FONTFAMILY_SCRIPT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD, False, wx.EmptyString ) )
+		self.btn_calcular.SetMinSize( wx.Size( 130,50 ) )
+		self.btn_calcular.SetMaxSize( wx.Size( 130,50 ) )
+
+		bSizer51.Add( self.btn_calcular, 0, wx.ALL, 5 )
 
 
-		gSizer10.Add( bSizer10, 1, wx.EXPAND|wx.ALIGN_RIGHT, 5 )
+		gSizer61.Add( bSizer51, 0, wx.ALIGN_RIGHT, 5 )
 
-		self.m_textCtrl18 = wx.TextCtrl( self.m_panel5, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, 0 )
-		self.m_textCtrl18.SetMinSize( wx.Size( 100,150 ) )
+		bSizer61 = wx.BoxSizer( wx.VERTICAL )
 
-		gSizer10.Add( self.m_textCtrl18, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL|wx.EXPAND, 5 )
+		self.btn_reiniciar = wx.Button( self.m_panel1, wx.ID_ANY, u"Reiniciar", wx.DefaultPosition, wx.Size( 130,50 ), 0 )
+		self.btn_reiniciar.SetFont( wx.Font( wx.NORMAL_FONT.GetPointSize(), wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD, False, wx.EmptyString ) )
+		self.btn_reiniciar.SetMinSize( wx.Size( 130,50 ) )
+		self.btn_reiniciar.SetMaxSize( wx.Size( 130,50 ) )
 
-
-		bSizer9.Add( gSizer10, 0, wx.EXPAND, 5 )
-
-
-		bSizer6.Add( bSizer9, 0, wx.EXPAND, 5 )
-
-		gSizer14 = wx.GridSizer( 0, 2, 0, 0 )
-
-		gSizer16 = wx.GridSizer( 0, 2, 0, 0 )
-
-		bSizer161 = wx.BoxSizer( wx.HORIZONTAL )
-
-		bSizer161.SetMinSize( wx.Size( 100,25 ) )
-		self.m_button21 = wx.Button( self.m_panel5, wx.ID_ANY, u"Calcular", wx.DefaultPosition, wx.DefaultSize, 0 )
-		bSizer161.Add( self.m_button21, 1, wx.ALIGN_CENTER_VERTICAL|wx.RIGHT, 5 )
+		bSizer61.Add( self.btn_reiniciar, 0, wx.ALL, 5 )
 
 
-		gSizer16.Add( bSizer161, 0, wx.ALIGN_RIGHT, 5 )
-
-		bSizer30 = wx.BoxSizer( wx.VERTICAL )
-
-		self.m_button27 = wx.Button( self.m_panel5, wx.ID_ANY, u"Reiniciar", wx.DefaultPosition, wx.DefaultSize, 0 )
-		bSizer30.Add( self.m_button27, 0, wx.EXPAND|wx.ALIGN_RIGHT, 5 )
+		gSizer61.Add( bSizer61, 1, wx.EXPAND, 5 )
 
 
-		gSizer16.Add( bSizer30, 0, wx.EXPAND, 5 )
+		gSizer5.Add( gSizer61, 1, wx.ALIGN_RIGHT, 5 )
+
+		gSizer7 = wx.GridSizer( 0, 2, 0, 0 )
+
+		gSizer8 = wx.GridSizer( 0, 2, 0, 0 )
 
 
-		gSizer14.Add( gSizer16, 1, wx.ALIGN_RIGHT, 5 )
+		gSizer7.Add( gSizer8, 1, wx.EXPAND, 5 )
 
-		gSizer17 = wx.GridSizer( 0, 2, 0, 0 )
+		self.btn_sair = wx.Button( self.m_panel1, wx.ID_ANY, u"Sair", wx.DefaultPosition, wx.Size( 130,50 ), 0 )
+		self.btn_sair.SetFont( wx.Font( wx.NORMAL_FONT.GetPointSize(), wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD, False, wx.EmptyString ) )
 
-		gSizer19 = wx.GridSizer( 0, 2, 0, 0 )
-
-
-		gSizer17.Add( gSizer19, 1, wx.EXPAND, 5 )
-
-		self.m_button24 = wx.Button( self.m_panel5, wx.ID_ANY, u"Sair", wx.DefaultPosition, wx.DefaultSize, 0 )
-
-		self.m_button24.SetBitmapMargins( wx.Size( 100,25 ) )
-		gSizer17.Add( self.m_button24, 0, wx.EXPAND|wx.ALIGN_CENTER_HORIZONTAL|wx.RIGHT, 5 )
+		gSizer7.Add( self.btn_sair, 0, wx.ALL|wx.ALIGN_RIGHT, 5 )
 
 
-		gSizer14.Add( gSizer17, 1, wx.EXPAND, 5 )
+		gSizer5.Add( gSizer7, 1, wx.EXPAND, 5 )
 
 
-		bSizer6.Add( gSizer14, 0, wx.EXPAND, 5 )
+		bSizer3.Add( gSizer5, 0, wx.EXPAND, 5 )
 
 
-		self.m_panel5.SetSizer( bSizer6 )
-		self.m_panel5.Layout()
-		bSizer6.Fit( self.m_panel5 )
-		bSizer1.Add( self.m_panel5, 1, wx.EXPAND, 5 )
+		self.m_panel1.SetSizer( bSizer3 )
+		self.m_panel1.Layout()
+		bSizer3.Fit( self.m_panel1 )
+		bSizer2.Add( self.m_panel1, 1, wx.EXPAND |wx.ALL, 5 )
 
 
-		self.SetSizer( bSizer1 )
+		self.SetSizer( bSizer2 )
 		self.Layout()
 
 		self.Centre( wx.BOTH )
 
+		# Connect Events
+		self.total.Bind( wx.EVT_TEXT, self.txt_total )
+		self.btn_calcular.Bind( wx.EVT_BUTTON, self.func_calcular )
+		self.btn_reiniciar.Bind( wx.EVT_BUTTON, self.func_reiniciar )
+		self.btn_sair.Bind( wx.EVT_BUTTON, self.func_sair )
+
 	def __del__( self ):
 		pass
+
+
+	# Virtual event handlers, overide them in your derived class
+	def txt_total( self, event ):
+		event.Skip()
+
+	def func_calcular( self, event ):
+		event.Skip()
+
+	def func_reiniciar( self, event ):
+		event.Skip()
+
+	def func_sair( self, event ):
+		event.Skip()
 
 
