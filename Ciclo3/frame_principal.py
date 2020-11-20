@@ -106,11 +106,13 @@ class MyFrame1 ( wx.Frame ):
 
 		gSizer6.Add( bSizer6, 1, wx.EXPAND, 5 )
 
-		self.total = wx.TextCtrl( self.m_panel1, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 300,150 ), 0 )
-		self.total.SetMinSize( wx.Size( 300,150 ) )
-		self.total.SetMaxSize( wx.Size( 300,150 ) )
+		self.txt_total = wx.StaticText( self.m_panel1, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 300,150 ), 0|wx.BORDER_SIMPLE )
+		self.txt_total.Wrap( -1 )
 
-		gSizer6.Add( self.total, 0, wx.ALL|wx.EXPAND|wx.ALIGN_RIGHT, 5 )
+		self.txt_total.SetMinSize( wx.Size( 300,150 ) )
+		self.txt_total.SetMaxSize( wx.Size( 300,150 ) )
+
+		gSizer6.Add( self.txt_total, 0, wx.ALIGN_CENTER_HORIZONTAL|wx.ALL, 5 )
 
 
 		bSizer5.Add( gSizer6, 0, wx.EXPAND, 5 )
@@ -180,7 +182,8 @@ class MyFrame1 ( wx.Frame ):
 		self.Centre( wx.BOTH )
 
 		# Connect Events
-		self.total.Bind( wx.EVT_TEXT, self.txt_total )
+		self.m_panel1.Bind( wx.EVT_CHAR, self.func_total )
+		self.txt_total.Bind( wx.EVT_CHAR, self.func_calc )
 		self.btn_calcular.Bind( wx.EVT_BUTTON, self.func_calcular )
 		self.btn_reiniciar.Bind( wx.EVT_BUTTON, self.func_reiniciar )
 		self.btn_sair.Bind( wx.EVT_BUTTON, self.func_sair )
@@ -190,7 +193,11 @@ class MyFrame1 ( wx.Frame ):
 
 
 	# Virtual event handlers, overide them in your derived class
-	def txt_total( self, event ):
+	def func_total( self, event ):
+		print('teste')
+		event.Skip()
+
+	def func_calc( self, event ):
 		event.Skip()
 
 	def func_calcular( self, event ):
